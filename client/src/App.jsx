@@ -12,9 +12,9 @@ import PlacesFormPage from './pages/PlacesFormPage'
 import PlacePage from './pages/PlacePage';
 import BookingsPage from './pages/BookingsPage';
 import BookingPage from './pages/BookingPage';
-
+//axios
 axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.withCredentials = true;;
+axios.defaults.withCredentials = true;; 
 
 function App() { 
   return (
