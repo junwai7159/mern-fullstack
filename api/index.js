@@ -42,11 +42,11 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const {firstName, lastName, email, password} = req.body;
+    const {firstName, lastName, age, birthday, email, phone, password} = req.body;
     try {
         const userDoc = await User.create({
-            name: {firstName, lastName}, 
-            email, 
+            name: firstName + ' ' + lastName, 
+            age, birthday, email, phone,
             password: bcrypt.hashSync(password, bcryptSalt),
         })
         res.json(userDoc);
@@ -116,13 +116,13 @@ app.post('/uploads', photosMiddleware.array('photos', 100), (req, res) => {
 
 app.post('/places', (req, res) => {
     const {token} = req.cookies;
-    const {title, address, addedPhotos, description, perks, 
+    const {title, city, country, addedPhotos, description, perks, 
         extraInfo, checkIn, checkOut, maxGuests, price,} = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
         const placeDoc = await Place.create({
             owner:userData.id,
-            title, address, photos:addedPhotos, description, perks, 
+            title, address: city+', '+country, photos:addedPhotos, description, perks, 
             extraInfo, checkIn, checkOut, maxGuests, price,
         });
         res.json(placeDoc);
@@ -144,14 +144,14 @@ app.get('/places/:id', async (req, res) => {
 
 app.put('/places', async (req, res) => {
     const {token} = req.cookies;
-    const {id, title, address, addedPhotos, description, perks, 
+    const {id, title, city, country, addedPhotos, description, perks, 
         extraInfo, checkIn, checkOut, maxGuests, price,} = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
         if (err) throw err;
         const placeDoc = await Place.findById(id);
         if (userData.id === placeDoc.owner.toString()) {
             placeDoc.set({
-                title, address, photos:addedPhotos, description, perks, 
+                title, address: city+', '+country, photos:addedPhotos, description, perks, 
                 extraInfo, checkIn, checkOut, maxGuests, price,           
             });
             await placeDoc.save();

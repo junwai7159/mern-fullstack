@@ -8,7 +8,8 @@ import axios from "axios";
 export default function PlacesFormPage() {
     const {id} = useParams();
     const [title, setTitle] = useState('');
-    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [country, setCountry] = useState('');
     const [addedPhotos, setAddedPhotos] = useState([])
     const [description, setDescription] = useState('');
     const [perks, setPerks] = useState([]);
@@ -25,7 +26,8 @@ export default function PlacesFormPage() {
         axios.get('/places/' + id).then(res => {
             const {data} = res;
             setTitle(data.title);
-            setAddress(data.address);
+            setCity(data.city);
+            setCountry(data.country);
             setAddedPhotos(data.photos);
             setDescription(data.description);
             setPerks(data.perks);
@@ -57,7 +59,7 @@ export default function PlacesFormPage() {
     }
     async function savePlace(ev) {
         ev.preventDefault();
-        const placeData = {title, address, addedPhotos, description, perks, 
+        const placeData = {title, city, country, addedPhotos, description, perks, 
             extraInfo, checkIn, checkOut, maxGuests, price,};
         if (id) {
             // update place
@@ -78,42 +80,45 @@ export default function PlacesFormPage() {
     <div>
         <AccountNav />    
         <form onSubmit={savePlace}>
-            {preInput('Title', 'Title for your place, should be concise and catchy.')}
+            {preInput('标题', '住处的标题，例如：我的可爱公寓')}
             <input type="text" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="title, for example: My lovely apartment" />
-            {preInput('Address', 'Address to your place.')}
-            <input type="text" value={address} onChange={ev => setAddress(ev.target.value)} placeholder="address" />
-            {preInput('Photos', 'more = better')}
+            {preInput('地址', '您的住处的地址，例如：北京市海淀区中关村大街5号')}
+            <div className="flex gap-2">
+                <input type="text" value={city} onChange={ev => setCity(ev.target.value)} placeholder="City" />
+                <input type="text" value={country} onChange={ev => setCountry(ev.target.value)} placeholder="Country" />
+            </div>
+            {preInput('相册', '您的住处的照片，最多9张')}
             <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
-            {preInput('Descriptions', 'Description of the place')}
+            {preInput('描述', '您的住处的描述，例如：我的公寓位于北京市海淀区中关村大街5号，是一间非常可爱的公寓')}
             <textarea value={description} onChange={ev => setDescription(ev.target.value)} />
-            {preInput('Perks', 'Select all the perks of your place')}
+            {preInput('福利', '您的住处的福利，例如：免费停车，免费早餐，免费洗衣机')}
             <div>
                 <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                     <Perks selected={perks} onChange={setPerks} />
                 </div>
             </div>
-            {preInput('Extra info', 'house rules, etc')}
+            {preInput('额外信息', '您的住处的额外信息，例如：入住时间，最大入住人数，价格等等')}
             <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} />
-            {preInput('Check-in(out) time, max guests', 'add check in and out times, remember to have somoe time window for cleaning the room between guests')}
+            {preInput('入住/退房时间, 最大客人数量，每晚价格', '您的住处的入住/退房时间，最大客人数量，每晚价格，例如：14:00/11:00, 2, 100 (每晚价格100元)')}
             <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-4">
                 <div>
-                    <h3 className="mt-2 -mb-1">Check-in time</h3>
+                    <h3 className="mt-2 -mb-1">入住时间</h3>
                     <input type="text" value={checkIn} onChange={ev => setCheckIn(ev.target.value)} placeholder="14:00" />
                 </div>
                 <div>
-                    <h3 className="mt-2 -mb-1">Check-out time</h3>
+                    <h3 className="mt-2 -mb-1">退房时间</h3>
                     <input type="text" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} placeholder="11:00" />
                 </div>
                 <div>
-                    <h3 className="mt-2 -mb-1">Maximum number of guests</h3>
+                    <h3 className="mt-2 -mb-1">最大客人数量</h3>
                     <input type="number" value={maxGuests} onChange={ev => setMaxGuests(ev.target.value)} />
                 </div>
                 <div>
-                    <h3 className="mt-2 -mb-1">Price per night</h3>
+                    <h3 className="mt-2 -mb-1">每晚价格</h3>
                     <input type="number" value={price} onChange={ev => setPrice(ev.target.value)} />
                 </div>
             </div>
-            <button className="primary my-4">Save</button>
+            <button className="primary my-4">保存</button>
         </form>
     </div>
     );
