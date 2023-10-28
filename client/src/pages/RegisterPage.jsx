@@ -23,7 +23,7 @@ export default function RegisterPage() {
     }
 
     return (
-        <div className="mt-4 grow flex items-center justify-">
+        <div className="mt-40 grow flex items-center justify-around">
             <div className="mb-64">
                 <h1 className="text-4xl text-center mb-4">注册</h1>
                 <form className="max-w-md mx-auto" onSubmit={registerUser}>
