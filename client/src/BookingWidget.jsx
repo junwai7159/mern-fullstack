@@ -16,6 +16,7 @@ export default function BookingWidget({place}) {
     useEffect(() => {
         if (user) {
             setName(user.name);
+            setPhone(user.phone);
         }
     }, [user]);
 
@@ -39,34 +40,34 @@ export default function BookingWidget({place}) {
     return (
     <div className="bg-white shadow p-4 rounded-2xl">
         <div className="text-2xl text-center">
-            <b>Price:</b> ${place.price} / per night <br />
+            <b>价格:</b> {place.price} 元 / 每晚 <br />
         </div>
         <div className="border rounded-2xl mt-4">
             <div className="flex">
                 <div className="py-3 px-4">
-                    <label><b>Check-in:</b></label>
-                    <input type="date" value={checkIn} onChange={ev => setCheckIn(ev.target.value)} />
+                    <label><b>入住日期:</b></label>
+                    <input type="date" value={checkIn} onChange={ev => setCheckIn(ev.target.value)} min={new Date().toISOString().split('T')[0]} />
                 </div>
                 <div className="py-3 px-4 border-l">
-                    <label><b>Check-out:</b></label>
-                    <input type="date" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} />
+                    <label><b>退房日期:</b></label>
+                    <input type="date" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} min={new Date().toISOString().split('T')[0]} />
                 </div>
             </div>
             <div className="py-3 px-4 border-t">
-                    <label><b>No. of guests:</b></label>
-                    <input type="number" value={numberOfGuests} onChange={ev => setNumberOfGuests(ev.target.value)} />
+                    <label><b>客人数量:</b></label>
+                    <input type="number" value={numberOfGuests} onChange={ev => setNumberOfGuests(ev.target.value)} min="1" />
             </div>
             {numberOfNights > 0 && (
                 <div className="py-3 px-4 border-t">
-                    <label><b>Your full name:</b></label>
+                    <label><b>您的姓名:</b></label>
                     <input type="text" value={name} onChange={ev => setName(ev.target.value)} placeholder="John Doe" />
-                    <label><b>Phone number:</b></label>
+                    <label><b>手机号码:</b></label>
                     <input type="tel" value={phone} onChange={ev => setPhone(ev.target.value)} />
                 </div>
             )}
         </div>
         <button onClick={bookThisPlace} className="primary mt-4">
-            Book this place
+            预定住宿
             {numberOfNights > 0 && (
                 <span> ${numberOfNights * place.price}</span>
             )}

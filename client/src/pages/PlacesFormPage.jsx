@@ -80,26 +80,26 @@ export default function PlacesFormPage() {
     <div>
         <AccountNav />    
         <form onSubmit={savePlace}>
-            {preInput('标题', '住处的标题，例如：我的可爱公寓')}
-            <input type="text" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="title, for example: My lovely apartment" />
-            {preInput('地址', '您的住处的地址，例如：北京市海淀区中关村大街5号')}
+            {preInput('标题', '住宿的标题')}
+            <input type="text" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="例如：我的可爱公寓" />
+            {preInput('地址', '住宿的地址')}
             <div className="flex gap-2">
-                <input type="text" value={city} onChange={ev => setCity(ev.target.value)} placeholder="City" />
-                <input type="text" value={country} onChange={ev => setCountry(ev.target.value)} placeholder="Country" />
+                <input type="text" value={city} onChange={ev => setCity(ev.target.value)} placeholder="城市" />
+                <input type="text" value={country} onChange={ev => setCountry(ev.target.value)} placeholder="国家" />
             </div>
-            {preInput('相册', '您的住处的照片，最多9张')}
+            {preInput('相册', '住宿的照片')}
             <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
-            {preInput('描述', '您的住处的描述，例如：我的公寓位于北京市海淀区中关村大街5号，是一间非常可爱的公寓')}
-            <textarea value={description} onChange={ev => setDescription(ev.target.value)} />
-            {preInput('福利', '您的住处的福利，例如：免费停车，免费早餐，免费洗衣机')}
+            {preInput('描述', '住宿的描述')}
+            <textarea value={description} onChange={ev => setDescription(ev.target.value)} placeholder="例如：我的公寓位于浦东新区黄浦江旁，有着美丽的滨江景观" />
+            {preInput('福利', '住宿的福利')}
             <div>
                 <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                     <Perks selected={perks} onChange={setPerks} />
                 </div>
             </div>
-            {preInput('额外信息', '您的住处的额外信息，例如：入住时间，最大入住人数，价格等等')}
-            <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} />
-            {preInput('入住/退房时间, 最大客人数量，每晚价格', '您的住处的入住/退房时间，最大客人数量，每晚价格，例如：14:00/11:00, 2, 100 (每晚价格100元)')}
+            {preInput('额外信息', '住宿的额外信息')}
+            <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} placeholder="例如：注意事项等等" />
+            {preInput('其他信息', '住宿的其他信息')}
             <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-4">
                 <div>
                     <h3 className="mt-2 -mb-1">入住时间</h3>
@@ -110,11 +110,11 @@ export default function PlacesFormPage() {
                     <input type="text" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} placeholder="11:00" />
                 </div>
                 <div>
-                    <h3 className="mt-2 -mb-1">最大客人数量</h3>
+                    <h3 className="mt-2 -mb-1">最多客人数量</h3>
                     <input type="number" value={maxGuests} onChange={ev => setMaxGuests(ev.target.value)} />
                 </div>
                 <div>
-                    <h3 className="mt-2 -mb-1">每晚价格</h3>
+                    <h3 className="mt-2 -mb-1">每晚价格（人民币）</h3>
                     <input type="number" value={price} onChange={ev => setPrice(ev.target.value)} />
                 </div>
             </div>

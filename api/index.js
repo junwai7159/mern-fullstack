@@ -16,7 +16,7 @@ const app = express();
 const port = 3000;
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'sjdfkjadsfkjksajdfn'
-const dir = 'C:/Users/User/OneDrive - sjtu.edu.cn/SJTU/Y4-1/Database Course/Project/api';
+const dir = __dirname;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -42,11 +42,11 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const {firstName, lastName, age, birthday, email, phone, password} = req.body;
+    const {firstName, lastName, birthday, email, phone, password} = req.body;
     try {
         const userDoc = await User.create({
             name: firstName + ' ' + lastName, 
-            age, birthday, email, phone,
+            birthday, email, phone,
             password: bcrypt.hashSync(password, bcryptSalt),
         })
         res.json(userDoc);
