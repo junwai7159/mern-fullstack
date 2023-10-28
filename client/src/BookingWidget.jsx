@@ -40,7 +40,7 @@ export default function BookingWidget({place}) {
     return (
     <div className="bg-white shadow p-4 rounded-2xl">
         <div className="text-2xl text-center">
-            <b>Price:</b> ${place.price} / per night <br />
+            <b>价格:</b> {place.price} 元 / 每晚 <br />
         </div>
         <div className="border rounded-2xl mt-4">
             <div className="flex">
