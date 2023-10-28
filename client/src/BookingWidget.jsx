@@ -44,16 +44,16 @@ export default function BookingWidget({place}) {
         <div className="border rounded-2xl mt-4">
             <div className="flex">
                 <div className="py-3 px-4">
-                    <label><b>Check-in:</b></label>
+                    <label><b>入住日期:</b></label>
                     <input type="date" value={checkIn} onChange={ev => setCheckIn(ev.target.value)} />
                 </div>
                 <div className="py-3 px-4 border-l">
-                    <label><b>Check-out:</b></label>
+                    <label><b>退房日期:</b></label>
                     <input type="date" value={checkOut} onChange={ev => setCheckOut(ev.target.value)} />
                 </div>
             </div>
             <div className="py-3 px-4 border-t">
-                    <label><b>No. of guests:</b></label>
+                    <label><b>客人数量:</b></label>
                     <input type="number" value={numberOfGuests} onChange={ev => setNumberOfGuests(ev.target.value)} />
             </div>
             {numberOfNights > 0 && (

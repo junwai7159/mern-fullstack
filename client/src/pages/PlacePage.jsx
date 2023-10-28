@@ -27,12 +27,12 @@ export default function PlacePage() {
             <div className="mt-8 mb-8 grid gap-8 grid-cols-2 md:grid-cols-[2fr_1fr]">
                 <div>
                     <div className="my-4">
-                        <h2 className="font-semibold text-2xl">Description</h2>
+                        <h2 className="font-semibold text-2xl">描述</h2>
                         {place.description}
                     </div>
-                    <b>Check-in:</b> {place.checkIn} <br />
-                    <b>Check-out:</b> {place.checkOut} <br />
-                    <b>Max. no. of guests:</b> {place.maxGuests}
+                    <b>入住时间:</b> {place.checkIn} <br />
+                    <b>退房时间:</b> {place.checkOut} <br />
+                    <b>最多客人数量:</b> {place.maxGuests}
                 </div>
                 <div>
                     <BookingWidget place={place} />
@@ -40,7 +40,7 @@ export default function PlacePage() {
             </div>
             <div className="bg-white -mx-8 px-8 py-8 border-t">
                 <div>
-                    <h2 className="font-semibold text-2xl">Extra info</h2>
+                    <h2 className="font-semibold text-2xl">额外信息</h2>
                 </div>
                 <div className="mb-4 mt-2 text-sm text-gray-700 leading-5">
                     {place.extraInfo}
