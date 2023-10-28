@@ -7,7 +7,6 @@ const nameSchema = new mongoose.Schema({
 
 const UserSchema = new mongoose.Schema({
     name: String,
-    age: {type: Number, min: 0, max: 100},
     birthday: Date,
     email: {type: String, unique:true, lowercase: true, required: true},
     phone: {type:String, required:true},
