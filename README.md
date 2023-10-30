@@ -10,8 +10,8 @@ See the final results here: [Website Preview](https://github.com/junwai7159/mern
 #### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/idurar/idurar-erp-crm.git
-cd idurar-erp-crm
+git clone https://github.com/junwai7159/mern-project.git
+cd mern-project
 ```
 
 #### Step 2: Create Your MongoDB Account and Database/Cluster
