@@ -30,8 +30,8 @@ export default function PlacePage() {
                         <h2 className="font-semibold text-2xl">描述</h2>
                         {place.description}
                     </div>
-                    <b>入住时间:</b> {place.checkIn} <br />
-                    <b>退房时间:</b> {place.checkOut} <br />
+                    <b>入住时间:</b> {place.checkIn} 后<br />
+                    <b>退房时间:</b> {place.checkOut} 前<br />
                     <b>最多客人数量:</b> {place.maxGuests}
                 </div>
                 <div>

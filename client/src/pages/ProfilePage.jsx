@@ -36,7 +36,7 @@ export default function ProfilePage() {
             <AccountNav />
             {subpage === 'profile' && (
                 <div className="text-center max-w-lg mx-auto">
-                    登入为 {user.name} ({user.email}) <br />
+                    您好{user.name}！({user.email}) <br />
                     <button onClick={logout} className="primary max-w-sm mt-2">登出</button>
                 </div>
             )}
