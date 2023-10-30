@@ -33,8 +33,8 @@ export default function RegisterPage() {
                     </div>
                     <div className="grow flex items-center justify-around border rounded-2xl py-2">
                         <label className="text-gray-400">出生日期</label>
-                        <input type="date" placeholder="出生日期" className="center" value={birthday} onChange={ev => setBirthday(ev.target.value)} />
-                    </div>
+                        <input type="date" placeholder="出生日期" className="center" value={birthday} onChange={ev => setBirthday(ev.target.value)} max={new Date().toISOString().split("T")[0]} />
+                    </div> 
                     <input type="text" placeholder="手机号码" className="text-center" value={phone} onChange={ev => setPhone(ev.target.value)} />
                     <input type="email" placeholder="您的邮箱" className="text-center" value={email} onChange={ev => setEmail(ev.target.value)} />
                     <input type="password" placeholder="密码" className="text-center" value={password} onChange={ev => setPassword(ev.target.value)} />
