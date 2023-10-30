@@ -22,13 +22,13 @@ cd mern-project
 
 - add your current IP address to the MongoDB database's IP whitelist to allow connections (this is needed whenever your ip changes)
 
-#### Step 3: Update MongoDB URI
+#### Step 3: Update MongoDB URL
 
 In the .env file, find the line that reads:
 
-`DATABASE="your-mongodb-uri"`
+`MONGO_URL="your-mongodb-url"`
 
-Replace "your-mongodb-uri" with the actual URI of your MongoDB database.
+Replace "your-mongodb-uri" with the actual URL of your MongoDB database.
 
 #### Step 4: Install Backend Dependencies
 
