@@ -28,7 +28,7 @@ In the .env file, find the line that reads:
 
 `MONGO_URL="your-mongodb-url"`
 
-Replace "your-mongodb-uri" with the actual URL of your MongoDB database.
+Replace "your-mongodb-url" with the actual URL of your MongoDB database.
 
 #### Step 4: Install Backend Dependencies
 
