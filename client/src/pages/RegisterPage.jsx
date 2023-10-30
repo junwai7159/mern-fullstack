@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 export default function RegisterPage() {
-    const [firstName, setFirstName] = useState('') 
-    const [lastName, setLastName] = useState('') 
+    const [name, setName] = useState('') 
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [birthday, setBirthday] = useState('') 
@@ -13,7 +12,7 @@ export default function RegisterPage() {
         ev.preventDefault()
         try {
             await axios.post('/register', {
-                firstName, lastName, birthday,
+                name, birthday,
                 email, phone, password
             });
             alert('注册成功，现在您可以登入')
@@ -28,8 +27,7 @@ export default function RegisterPage() {
                 <h1 className="text-4xl text-center mb-4">注册</h1>
                 <form className="max-w-md mx-auto" onSubmit={registerUser}>
                     <div className="flex gap-2">
-                        <input type="text" placeholder="姓" className="text-center" value={lastName} onChange={ev => setLastName(ev.target.value)} />
-                        <input type="text" placeholder="名" className="text-center" value={firstName} onChange={ev => setFirstName(ev.target.value)} />
+                        <input type="text" placeholder="用户姓名" className="text-center" value={name} onChange={ev => setName(ev.target.value)} />
                     </div>
                     <div className="grow flex items-center justify-around border rounded-2xl py-2">
                         <label className="text-gray-400">出生日期</label>
