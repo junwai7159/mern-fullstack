@@ -8,8 +8,7 @@ import axios from "axios";
 export default function PlacesFormPage() {
     const {id} = useParams();
     const [title, setTitle] = useState('');
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
+    const [address, setAddress] = useState('');
     const [addedPhotos, setAddedPhotos] = useState([])
     const [description, setDescription] = useState('');
     const [perks, setPerks] = useState([]);
@@ -26,8 +25,7 @@ export default function PlacesFormPage() {
         axios.get('/places/' + id).then(res => {
             const {data} = res;
             setTitle(data.title);
-            setCity(data.city);
-            setCountry(data.country);
+            setAddress(data.address);
             setAddedPhotos(data.photos);
             setDescription(data.description);
             setPerks(data.perks);
@@ -59,7 +57,7 @@ export default function PlacesFormPage() {
     }
     async function savePlace(ev) {
         ev.preventDefault();
-        const placeData = {title, city, country, addedPhotos, description, perks, 
+        const placeData = {title, address, addedPhotos, description, perks, 
             extraInfo, checkIn, checkOut, maxGuests, price,};
         if (id) {
             // update place
@@ -83,10 +81,7 @@ export default function PlacesFormPage() {
             {preInput('标题', '住宿的标题')}
             <input type="text" value={title} onChange={ev => setTitle(ev.target.value)} placeholder="例如：我的可爱公寓" />
             {preInput('地址', '住宿的地址')}
-            <div className="flex gap-2">
-                <input type="text" value={city} onChange={ev => setCity(ev.target.value)} placeholder="城市" />
-                <input type="text" value={country} onChange={ev => setCountry(ev.target.value)} placeholder="国家" />
-            </div>
+            <input type="text" value={address} onChange={ev => setAddress(ev.target.value)} placeholder="城市，国家" />
             {preInput('相册', '住宿的照片')}
             <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
             {preInput('描述', '住宿的描述')}
