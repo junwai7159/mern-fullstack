@@ -106,7 +106,7 @@ export default function PlacesFormPage() {
                 </div>
                 <div>
                     <h3 className="mt-2 -mb-1">最多客人数量</h3>
-                    <input type="number" value={maxGuests} onChange={ev => setMaxGuests(ev.target.value)} />
+                    <input type="number" value={maxGuests} onChange={ev => setMaxGuests(ev.target.value)} min={1} />
                 </div>
                 <div>
                     <h3 className="mt-2 -mb-1">每晚价格（人民币）</h3>
