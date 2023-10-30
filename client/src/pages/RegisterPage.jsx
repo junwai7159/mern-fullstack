@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function RegisterPage() {
     const [name, setName] = useState('') 
+    const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [birthday, setBirthday] = useState('') 
@@ -12,7 +13,7 @@ export default function RegisterPage() {
         ev.preventDefault()
         try {
             await axios.post('/register', {
-                name, birthday,
+                name, username, birthday,
                 email, phone, password
             });
             alert('注册成功，现在您可以登入')
@@ -26,9 +27,8 @@ export default function RegisterPage() {
             <div className="mb-64">
                 <h1 className="text-4xl text-center mb-4">注册</h1>
                 <form className="max-w-md mx-auto" onSubmit={registerUser}>
-                    <div className="flex gap-2">
-                        <input type="text" placeholder="用户姓名" className="text-center" value={name} onChange={ev => setName(ev.target.value)} />
-                    </div>
+                    <input type="text" placeholder="姓名" className="text-center" value={name} onChange={ev => setName(ev.target.value)} />
+                    <input type="text" placeholder="用户名" className="text-center" value={username} onChange={ev => setUsername(ev.target.value)} />
                     <div className="grow flex items-center justify-around border rounded-2xl py-2">
                         <label className="text-gray-400">出生日期</label>
                         <input type="date" placeholder="出生日期" className="center" value={birthday} onChange={ev => setBirthday(ev.target.value)} max={new Date().toISOString().split("T")[0]} />

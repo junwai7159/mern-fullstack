@@ -42,10 +42,10 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const {name, birthday, email, phone, password} = req.body;
+    const {name, username, birthday, email, phone, password} = req.body;
     try {
         const userDoc = await User.create({
-            name, birthday, email, phone,
+            name, username, birthday, email, phone,
             password: bcrypt.hashSync(password, bcryptSalt),
         })
         res.json(userDoc);
@@ -77,8 +77,8 @@ app.get('/profile', (req, res) => {
     if (token) {
         jwt.verify(token, jwtSecret, {}, async (err, userData) => {
             if (err) throw err;
-            const {name, email, _id} = await User.findById(userData.id);
-            res.json({name, email, _id})
+            const {username, email, _id} = await User.findById(userData.id);
+            res.json({username, email, _id})
         });
     } else {
         res.json(null);
