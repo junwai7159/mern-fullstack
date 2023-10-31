@@ -51,7 +51,7 @@ node index.js
 
 This command will start the backend server, and it will listen for incoming requests.
 
-#### Step 8: Install Frontend Dependencies
+#### Step 6: Install Frontend Dependencies
 
 Open a new terminal window , and run the following command to install the frontend dependencies:
 
@@ -62,7 +62,7 @@ yarn install
 
 This command will navigate to the frontend directory within the project and install all the required packages for the frontend.
 
-#### Step 9: Run the Frontend Server
+#### Step 7: Run the Frontend Server
 
 After installing the frontend dependencies, run the following command in the same terminal to start the frontend server:
 
