@@ -10,8 +10,8 @@ See the final results here: [Website Preview](https://github.com/junwai7159/mern
 #### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/idurar/idurar-erp-crm.git
-cd idurar-erp-crm
+git clone https://github.com/junwai7159/mern-project.git
+cd mern-project
 ```
 
 #### Step 2: Create Your MongoDB Account and Database/Cluster
@@ -22,13 +22,13 @@ cd idurar-erp-crm
 
 - add your current IP address to the MongoDB database's IP whitelist to allow connections (this is needed whenever your ip changes)
 
-#### Step 3: Update MongoDB URI
+#### Step 3: Update MongoDB URL
 
 In the .env file, find the line that reads:
 
-`DATABASE="your-mongodb-uri"`
+`MONGO_URL="your-mongodb-url"`
 
-Replace "your-mongodb-uri" with the actual URI of your MongoDB database.
+Replace "your-mongodb-url" with the actual URL of your MongoDB database.
 
 #### Step 4: Install Backend Dependencies
 
@@ -51,7 +51,7 @@ node index.js
 
 This command will start the backend server, and it will listen for incoming requests.
 
-#### Step 8: Install Frontend Dependencies
+#### Step 6: Install Frontend Dependencies
 
 Open a new terminal window , and run the following command to install the frontend dependencies:
 
@@ -62,7 +62,7 @@ yarn install
 
 This command will navigate to the frontend directory within the project and install all the required packages for the frontend.
 
-#### Step 9: Run the Frontend Server
+#### Step 7: Run the Frontend Server
 
 After installing the frontend dependencies, run the following command in the same terminal to start the frontend server:
 
