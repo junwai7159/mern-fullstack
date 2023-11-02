@@ -85,6 +85,26 @@ app.get('/profile', (req, res) => {
     }
 });
 
+app.put('/account', async (req, res) => {
+    const {token} = req.cookies;
+    const {id, name, email, username, phone, birthday} = req.body;
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+        if (err) throw err;
+        const userDoc = await User.findById(id);
+        if (userData.id === userDoc._id.toString()) {
+            userDoc.set({name, email, username, phone, birthday});
+            await userDoc.save();
+            res.json('ok');
+        }
+    });
+
+});
+
+app.get('/account/:id', async (req, res) => {
+    const {id} = req.params;
+    res.json(await User.findById(id));
+});
+
 app.post('/logout', (req, res) => {
     res.cookie('token', '').json(true);
 });
