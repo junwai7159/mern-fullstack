@@ -67,7 +67,7 @@ This command will navigate to the frontend directory within the project and inst
 After installing the frontend dependencies, run the following command in the same terminal to start the frontend server:
 
 ```bash
-yarn dev
+yarn start
 ```
 The website link will be provided in the same terminal.
 
