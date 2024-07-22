@@ -1,4 +1,4 @@
-## Description
+## About the project
 An e-commerce hotel/accomodation booking website based on the MERN Stack (MongoDB, Express.js, React.js, Node.js) </br> </br>
 The website is implemented with the following features:
 - User login/logout 
@@ -7,6 +7,7 @@ The website is implemented with the following features:
 
 See the final results here: [Website Preview](https://github.com/junwai7159/mern-project/edit/master/README.md#website-preview)
 
+## Usage
 #### Step 1: Clone the repository
 
 ```bash
@@ -71,7 +72,10 @@ yarn start
 ```
 The website link will be provided in the same terminal.
 
-## Website Preview
-![image](https://github.com/junwai7159/mern-project/assets/67097978/c96989f6-e43c-4efd-bce3-763f71a47ceb)
+## Demonstrations
+#### Entity-Relationship Diagram
+![image](https://github.com/user-attachments/assets/8537b1ae-3f1e-4e6d-828f-b2db0fe56a85)
 
+#### Video Showcase
+https://github.com/user-attachments/assets/172b33c1-abe0-471a-b7bd-c603b7320d5a
 
