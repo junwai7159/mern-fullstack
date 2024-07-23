@@ -1,3 +1,4 @@
+# MERN Hotel Booking Website
 ## About the project
 An e-commerce hotel/accomodation booking website based on the MERN Stack (MongoDB, Express.js, React.js, Node.js) </br> </br>
 The website is implemented with the following features:
